@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { login } from 'redux/authRedux/authOperations';
 
+import 'react-toastify/dist/ReactToastify.min.css';
+
 const LoginPage = () => {
   const dispatch = useDispatch();
 
@@ -40,7 +42,9 @@ const LoginPage = () => {
           onChange={formik.handleChange}
         />
       </StyledLabel>
-      <button type="submit">Register</button>
+      <button type="submit" width="200px">
+        Login
+      </button>
     </StyledForm>
   );
 };
@@ -48,8 +52,11 @@ const LoginPage = () => {
 export default LoginPage;
 
 const StyledForm = styled.form`
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const StyledLabel = styled.label`

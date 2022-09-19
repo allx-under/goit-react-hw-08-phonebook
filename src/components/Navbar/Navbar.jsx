@@ -1,14 +1,9 @@
 import styled from 'styled-components';
 
-import { NavLink } from 'react-router-dom';
-
-const Navbar = () => {
+const Navbar = ({ children }) => {
   return (
     <>
-      <Wrapper>
-        <StyledLink to="register">Register</StyledLink>
-        <StyledLink to="login"> Login</StyledLink>
-      </Wrapper>
+      <Wrapper>{children}</Wrapper>
       <hr />
     </>
   );
@@ -20,15 +15,4 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-`;
-
-const StyledLink = styled(NavLink)`
-  text-decoration: none;
-  color: black;
-  &:hover {
-    color: grey;
-  }
-  &:first-child {
-    margin-right: 10px;
-  }
 `;

@@ -20,7 +20,7 @@ const ContactsPage = () => {
 
   const onSubmitAddToContacts = useCallback(
     (name, number, form) => {
-      const sameName = contacts.find(contact => contact.name === name);
+      const sameName = contacts?.find(contact => contact.name === name);
       if (sameName) {
         Notify.failure('This contact is already in your list');
         return form.reset();

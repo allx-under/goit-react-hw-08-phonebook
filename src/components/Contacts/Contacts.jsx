@@ -6,7 +6,7 @@ import ContactsItem from 'components/ContactsItem/ContactsItem';
 const Contacts = ({ nameList, onClick }) => {
   return (
     <ul>
-      {nameList.map(({ name, id, number }) => (
+      {nameList?.map(({ name, id, number }) => (
         <ContactsItem
           key={id}
           name={name}

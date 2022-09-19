@@ -5,7 +5,6 @@ import { register } from 'redux/authRedux/authOperations';
 
 const RegisterPage = () => {
   const dispatch = useDispatch();
-
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -17,6 +16,10 @@ const RegisterPage = () => {
       resetForm();
     },
   });
+
+  // if (isLogin) {
+  //   return <Navigate to="/contacts" />;
+  // }
 
   return (
     <StyledForm onSubmit={formik.handleSubmit}>
@@ -60,8 +63,11 @@ const RegisterPage = () => {
 export default RegisterPage;
 
 const StyledForm = styled.form`
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const StyledLabel = styled.label`
