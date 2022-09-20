@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { ThreeDots } from 'react-loader-spinner';
 
-import { StyledBtn } from 'components/Button/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
+// import { StyledBtn } from 'components/Button/Button';
+import { Chip } from '@mui/material';
 
 const ContactsItem = ({ name, number, id, onClick }) => {
   const [disabledId, setDisabledId] = useState('');
@@ -17,20 +18,16 @@ const ContactsItem = ({ name, number, id, onClick }) => {
     <li>
       <p>
         {name}: {number}{' '}
-        <StyledBtn
+        <Chip
+          label="Delete"
           disabled={isDeleting()}
           onClick={() => {
             onClick(id);
             setDisabledId(id);
           }}
           type="button"
-        >
-          {isDeleting() ? (
-            <ThreeDots height="16" width="100%" color="grey" />
-          ) : (
-            'Delete'
-          )}
-        </StyledBtn>
+          icon={<DeleteIcon />}
+        ></Chip>
       </p>
     </li>
   );

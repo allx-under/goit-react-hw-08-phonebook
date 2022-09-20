@@ -1,14 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import { TextField } from '@mui/material';
+// import PropTypes from 'prop-types';
 
-import Button from 'components/Button/Button';
+// import Button from 'components/Button/Button';
 
 const ContactsFilter = ({ filter, onChange }) => {
   return (
     <Wrapper>
-      <StyledLabel>Find contacts by name</StyledLabel>
-      <input name="filter" onChange={onChange} value={filter} />
+      <TextField
+        label="Find contact by name"
+        name="filter"
+        onChange={onChange}
+        value={filter}
+      />
     </Wrapper>
   );
 };
@@ -20,11 +25,3 @@ const Wrapper = styled.div`
   flex-direction: column;
   width: 200px;
 `;
-
-const StyledLabel = styled.label`
-  margin-bottom: 10px;
-`;
-
-Button.propTypes = {
-  filter: PropTypes.string,
-};

@@ -1,7 +1,9 @@
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
+import { styled as styledMui } from '@mui/material/styles';
 import { register } from 'redux/authRedux/authOperations';
+import { Button, TextField } from '@mui/material';
 
 const RegisterPage = () => {
   const dispatch = useDispatch();
@@ -22,59 +24,66 @@ const RegisterPage = () => {
   // }
 
   return (
-    <StyledForm onSubmit={formik.handleSubmit}>
-      <StyledLabel>
-        Provide your nickname
-        <StyledInput
-          type="text"
+    <Container>
+      <StyledForm onSubmit={formik.handleSubmit}>
+        <TextField
+          label="Name"
+          variant="standard"
+          type="name"
           name="name"
-          placeholder="Name"
           value={formik.values.name}
           onChange={formik.handleChange}
-        />
-      </StyledLabel>
-      <br />
-      <StyledLabel>
-        Your email
-        <StyledInput
+          autoComplete="off"
+        ></TextField>
+        <br />
+        <TextField
+          label="Email"
+          variant="standard"
           type="email"
           name="email"
-          placeholder="Email"
           value={formik.values.email}
           onChange={formik.handleChange}
-        />
-      </StyledLabel>
-      <br />
-      <StyledLabel>
-        Your password
-        <StyledInput
+          autoComplete="off"
+        ></TextField>
+        <br />
+        <TextField
+          label="Password"
+          variant="standard"
           type="password"
           name="password"
-          placeholder="Password"
           value={formik.values.password}
           onChange={formik.handleChange}
-        />
-      </StyledLabel>
-      <button type="submit">Register</button>
-    </StyledForm>
+        ></TextField>
+
+        <StyledBtn variant="contained" type="submit" width="200px">
+          Register
+        </StyledBtn>
+      </StyledForm>
+    </Container>
   );
 };
 
 export default RegisterPage;
 
 const StyledForm = styled.form`
-  margin-top: 50px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 5px;
+  width: 250px;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  background: RGB(189, 195, 199);
 `;
 
-const StyledLabel = styled.label`
+const Container = styled.div`
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
 `;
 
-const StyledInput = styled.input`
-  width: 200px;
+const StyledBtn = styledMui(Button)`
+  margin-top: 15px;
 `;

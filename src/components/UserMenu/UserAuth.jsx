@@ -1,11 +1,16 @@
+import { Button } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const UserAuth = () => {
   return (
     <>
-      <StyledLink to="register">Register</StyledLink>
-      <StyledLink to="login"> Login</StyledLink>
+      <Button to="/register" variant="contained" component={StyledLink}>
+        Register
+      </Button>
+      <Button to="/login" variant="contained" component={StyledLink}>
+        Login
+      </Button>
     </>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useEffect, useCallback } from 'react';
 import { Notify } from 'notiflix';
+import styled from 'styled-components';
 import Contacts from 'components/Contacts/Contacts';
 import ContactsForm from 'components/ContactsForm/ContactsForm';
 import ContactsFilter from 'components/ContactsFilter/ContactsFilter';
@@ -66,3 +67,10 @@ const ContactsPage = () => {
 };
 
 export default ContactsPage;
+
+// const Container = styled.div`
+//   // display: flex;
+//   // flex-direction: column;
+//   // justify-content: center;
+//   // align-items: center;
+// `;

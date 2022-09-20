@@ -1,9 +1,9 @@
 import React, { useState, useRef, memo } from 'react';
 import styled from 'styled-components';
+import { styled as styledMui } from '@mui/system';
 import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
-
-import Button from 'components/Button/Button';
+import { Button, TextField } from '@mui/material';
 
 const ContactsForm = ({ onSubmit }) => {
   const [contactInfo, setContactInfo] = useState({ name: '', number: '' });
@@ -33,8 +33,9 @@ const ContactsForm = ({ onSubmit }) => {
 
   return (
     <StyledForm onSubmit={handleSubmit} onReset={reset}>
-      <label htmlFor={nameId.current}>Name</label>
       <StyledInput
+        label="Name"
+        variant="standard"
         onChange={onInputChange}
         value={contactInfo.name}
         type="text"
@@ -42,11 +43,12 @@ const ContactsForm = ({ onSubmit }) => {
         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         required
+        autoComplete="off"
         id={nameId.current}
       />
-
-      <label htmlFor={numberId.current}>Number</label>
       <StyledInput
+        label="Number"
+        variant="standard"
         id={numberId.current}
         onChange={onInputChange}
         value={contactInfo.number}
@@ -55,9 +57,11 @@ const ContactsForm = ({ onSubmit }) => {
         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required
+        autoComplete="off"
       />
-
-      <Button />
+      <StyledBtn type="submit" variant="contained">
+        Add contact
+      </StyledBtn>
     </StyledForm>
   );
 };
@@ -70,8 +74,12 @@ const StyledForm = styled.form`
   width: 200px;
 `;
 
-const StyledInput = styled.input`
+const StyledInput = styledMui(TextField)`
   margin-bottom: 10px;
+`;
+
+const StyledBtn = styledMui(Button)`
+margin-top: 10px;
 `;
 
 ContactsForm.propTypes = {
