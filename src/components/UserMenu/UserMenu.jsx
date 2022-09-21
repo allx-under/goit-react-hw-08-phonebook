@@ -12,14 +12,13 @@ const UserMenu = () => {
     dispatch(logout());
   };
   return (
-    <>
-      {' '}
+    <Wrapper>
       <Avatar>{email.charAt(0)}</Avatar>
       <StyledSpan>{email}</StyledSpan>
       <Button variant="contained" onClick={onClickLogout}>
         Logout
       </Button>
-    </>
+    </Wrapper>
   );
 };
 
@@ -28,4 +27,10 @@ export default UserMenu;
 const StyledSpan = styled.span`
   margin-left: 5px;
   margin-right: 10px;
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

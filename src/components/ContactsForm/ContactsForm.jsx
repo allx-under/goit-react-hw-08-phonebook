@@ -1,9 +1,9 @@
 import React, { useState, useRef, memo } from 'react';
 import styled from 'styled-components';
 import { styled as styledMui } from '@mui/system';
+import { Button, TextField } from '@mui/material';
 import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
-import { Button, TextField } from '@mui/material';
 
 const ContactsForm = ({ onSubmit }) => {
   const [contactInfo, setContactInfo] = useState({ name: '', number: '' });

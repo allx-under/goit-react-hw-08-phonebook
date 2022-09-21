@@ -7,6 +7,7 @@ const initialState = {
   token: '',
   loading: false,
   error: null,
+  isRefreshing: false,
 };
 const authSlice = createSlice({
   name: 'auth',
@@ -55,15 +56,18 @@ const authSlice = createSlice({
       state.error = payload;
     },
     [refresh.pending]: state => {
+      state.isRefreshing = true;
       state.loading = true;
       state.error = null;
     },
     [refresh.fulfilled]: (state, { payload }) => {
+      state.isRefreshing = false;
       state.loading = false;
       state.user = { ...payload };
       state.isLogin = true;
     },
     [refresh.rejected]: (state, { payload }) => {
+      state.isRefreshing = false;
       state.loading = false;
       state.token = '';
       state.error = payload;

@@ -1,11 +1,12 @@
 import React, { useEffect, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { Notify } from 'notiflix';
-import styled from 'styled-components';
 import Contacts from 'components/Contacts/Contacts';
 import ContactsForm from 'components/ContactsForm/ContactsForm';
 import ContactsFilter from 'components/ContactsFilter/ContactsFilter';
 import Title from 'components/Title/Title';
-import { useDispatch, useSelector } from 'react-redux';
+
 import { setFilter } from 'redux/contactsRedux/contactsActions';
 import {
   fetchContacts,

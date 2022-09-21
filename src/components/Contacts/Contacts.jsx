@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import ContactsItem from 'components/ContactsItem/ContactsItem';
 
 const Contacts = ({ nameList, onClick }) => {

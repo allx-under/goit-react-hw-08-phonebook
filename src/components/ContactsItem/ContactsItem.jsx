@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
+import styled from 'styled-components';
 import DeleteIcon from '@mui/icons-material/Delete';
-// import { StyledBtn } from 'components/Button/Button';
 import { Chip } from '@mui/material';
 
 const ContactsItem = ({ name, number, id, onClick }) => {
@@ -15,8 +15,8 @@ const ContactsItem = ({ name, number, id, onClick }) => {
     }
   };
   return (
-    <li>
-      <p>
+    <StyledItem>
+      <span>
         {name}: {number}{' '}
         <Chip
           label="Delete"
@@ -25,12 +25,17 @@ const ContactsItem = ({ name, number, id, onClick }) => {
             onClick(id);
             setDisabledId(id);
           }}
-          type="button"
           icon={<DeleteIcon />}
-        ></Chip>
-      </p>
-    </li>
+        />
+      </span>
+    </StyledItem>
   );
 };
 
 export default ContactsItem;
+
+const StyledItem = styled.li`
+  &:not(:last-child) {
+    margin-bottom: 5px;
+  }
+`;

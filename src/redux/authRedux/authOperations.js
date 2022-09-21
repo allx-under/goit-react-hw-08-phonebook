@@ -1,6 +1,7 @@
-import { signupUser, loginUser, logoutUser, refreshUser } from 'api/authAPI';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { Notify } from 'notiflix';
+
+import { signupUser, loginUser, logoutUser, refreshUser } from 'api/authAPI';
 
 export const register = createAsyncThunk(
   'auth/signup',

@@ -1,9 +1,10 @@
-import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
+import { useFormik } from 'formik';
 import styled from 'styled-components';
 import { styled as styledMui } from '@mui/material/styles';
-import { register } from 'redux/authRedux/authOperations';
 import { Button, TextField } from '@mui/material';
+
+import { register } from 'redux/authRedux/authOperations';
 
 const RegisterPage = () => {
   const dispatch = useDispatch();
@@ -18,10 +19,6 @@ const RegisterPage = () => {
       resetForm();
     },
   });
-
-  // if (isLogin) {
-  //   return <Navigate to="/contacts" />;
-  // }
 
   return (
     <Container>
